@@ -81,10 +81,12 @@ export default function Home() {
               </h1>
 
               <div className="pills animate-on-scroll delay-1">
-                <span className="pill">React</span>
+                <span className="pill">PHP</span>
                 <span className="pill">JavaScript</span>
-                <span className="pill">Tailwind CSS</span>
-                <span className="pill">Bootstrap</span>
+                <span className="pill">HTML</span>
+                <span className="pill">VB.NET</span>
+                <span className="pill">Node.js</span>
+                <span className="pill">CSS</span>
               </div>
 
               <div className="cta-row animate-on-scroll delay-2">
@@ -99,7 +101,6 @@ export default function Home() {
           <section id="about" className="section">
             <div className="section-title animate-on-scroll">
               <h2>About Me</h2>
-              <p>Transforming caffeine into digital experiences.</p>
             </div>
 
             <div style={{display:'grid',gridTemplateColumns:'1fr 300px',gap:40,alignItems:'center'}}>
@@ -107,7 +108,7 @@ export default function Home() {
                 <h3 style={{color:'var(--neon-2)',margin:'0 0 4px 0',fontSize:16}}>Hello, I'm</h3>
                 <h2 style={{fontSize:32,margin:'0 0 16px 0',fontWeight:700}}>Mel Mathew Perez Albason</h2>
                 <p className="muted" style={{margin:0,lineHeight:1.7,fontSize:16}}>
-                  A 21-year-old BSIT student from the Philippines, currently a Frontend Developer aiming to become a Software Engineer. My goal is to create effective digital experiences using current technologies and to learn new industry standards quickly.
+                  I am a BS Information Technology student at Quezon City University. I enjoy troubleshooting computers and typing or holding a keyboard and also fiddling with the parts of the computer. I'm here to pursue a challenging and creative career where I acquire new skills, and contribute effectively to the organization. 
                 </p>
 
                 <div style={{display:'flex',gap:12,marginTop:24}} className="animate-on-scroll delay-3">
@@ -130,45 +131,101 @@ export default function Home() {
 
           <section id="journey" className="section">
             <div className="stats">
-              <div className="stat-card animate-on-scroll"><h3>4</h3><p>TOTAL PROJECTS</p></div>
-              <div className="stat-card animate-on-scroll delay-1"><h3>2</h3><p>CERTIFICATES</p></div>
-              <div className="stat-card animate-on-scroll delay-2"><h3>12</h3><p>TECH STACKS</p></div>
+              <div className="stat-card animate-on-scroll"><h3>6</h3><p>TOTAL PROJECTS</p></div>
+              <div className="stat-card animate-on-scroll delay-1"><h3>4</h3><p>CERTIFICATES</p></div>
+              <div className="stat-card animate-on-scroll delay-2"><h3>9</h3><p>TECH STACKS</p></div>
             </div>
 
             <div className="section-title animate-on-scroll delay-1">
-              <h2>My Journey</h2>
-              <p>Explore my academic and professional journey that has shaped my skills and expertise.</p>
+              <h2>Educational Journey</h2>
+              <p><i>A look into the studies and experiences that have honed my skills and shaped who I am today.</i></p>
             </div>
 
-            <div style={{display:'grid',gap:16}}>
+              <div style={{display:'grid',gap:16}}>
               <div className="card animate-on-scroll delay-2">
-                <strong>Quezon City University</strong>
-                <div className="muted">Bachelor of Science in Information Technology • 2022 - Present</div>
+                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
+                  <Image
+                    src="/images/qcu-logo.png"
+                    alt="QCU Logo"
+                    width={72}
+                    height={72}
+                    className="edu-logo"
+                  />
+
+                  <div>
+                    <strong>Quezon City University</strong>
+                    <div className="muted">Bachelor of Science in Information Technology • 2022 - Present</div>
+                  </div>
+                </div>
               </div>
+
               <div className="card animate-on-scroll delay-3">
-                <strong>Immaculada Concepcion College</strong>
-                <div className="muted">Information and Communications Technology • 2020 - 2022</div>
+                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
+                  <Image
+                    src="/images/seaitt.png"
+                    alt="South East Asia Institute of Trade and Technology Logo"
+                    width={72}
+                    height={72}
+                    className="edu-logo"
+                  />
+                  <div>
+                    <strong>South East Asia Institute of Trade And Technology</strong>
+                    <div className="muted">Humanities and Social Sciences • 2019 - 2021</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card animate-on-scroll delay-4">
+                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
+                  <Image
+                    src="/images/b-silangan.png"
+                    alt="Bagong Silangan High School Logo"
+                    width={72}
+                    height={72}
+                    className="edu-logo"
+                  />
+                  <div>
+                    <strong>Bagong Silangan High School</strong>
+                    <div className="muted">High School • 2014 - 2018</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card animate-on-scroll delay-5">
+                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
+                  <Image
+                    src="/images/b-e-silangan.png"
+                    alt="Bagong Silangan Elementary School Logo"
+                    width={72}
+                    height={72}
+                    className="edu-logo"
+                  />
+                  <div>
+                    <strong>Bagong Silangan Elementary School</strong>
+                    <div className="muted">Elementary School • 2007 - 2013</div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
           <section id="portfolio" className="section">
             <div className="section-title animate-on-scroll">
-              <h2>Portfolio Showcase</h2>
-              <p>Explore my journey through projects, certifications, and technical expertise.</p>
+              <h2>Work Highlights</h2>
+              <p><i>Explore key projects and accomplishments that demonstrate my skills, creativity, and technical proficiency.</i></p>
             </div>
 
             <div className="grid">
               <div className="project animate-on-scroll delay-1">
                 <div style={{height:160,background:'#2b2350',borderRadius:8,display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontWeight:700}}>Project Image</div>
-                <h4>LazyStack</h4>
-                <p>LazyStack is a modern web platform showcasing a curated collection of developer tools, focusing on AI-powered development solutions.</p>
+                <h4>QCU AMS</h4>
+                <p>It allows staff to track assets, schedule maintenance, and manage inventory efficiently within the campus network. Each item is tagged with a QR code for quick identification, while role-based access ensures security and proper user permissions. The system also automates maintenance tracking and provides data insights to improve decision-making — ultimately reducing losses, saving time, and enhancing overall laboratory operations.</p>
               </div>
 
               <div className="project animate-on-scroll delay-2">
                 <div style={{height:160,background:'#2b2350',borderRadius:8,display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontWeight:700}}>Project Image</div>
-                <h4>Weather Grid</h4>
-                <p>Weather Grid provides reliable, up-to-date weather information through a clean, easy-to-use interface.</p>
+                <h4>Vine Residence</h4>
+                <p>The Residence Management System is a digital platform designed to organize and manage dormitory or residence operations efficiently. It handles key tasks such as resident registration, room assignments, maintenance requests, and payment tracking.</p>
               </div>
             </div>
           </section>

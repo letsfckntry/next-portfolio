@@ -137,6 +137,24 @@ body {
 .input{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-bottom:12px}
 .send-btn{width:100%;padding:12px;background:linear-gradient(90deg,var(--neon-1),var(--neon-2));border-radius:8px;color:#081225;border:0;font-weight:600}
 
+.edu-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: contain;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  padding: 6px;
+}
+
+@media (max-width: 900px) {
+  .edu-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+}
+
 /* Small screens */
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr;gap:28px;padding:0px 28px}
