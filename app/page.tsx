@@ -59,43 +59,46 @@ export default function Home() {
 
   return (
     <div className="grid-overlay">
-      <div className="site-wrap">
-        <header className="top-nav">
-          <div className="brand">Mathew</div>
-          <nav className="nav-links" aria-label="Main navigation">
-            <a className="active" href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#journey">Journey</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+      <div className="mx-auto max-w-[1200px] relative">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(5,2,10,0.9)] backdrop-blur-md flex items-center justify-between gap-5 px-14 py-5">
+          <div className="text-neon-2 font-bold text-[20px]">Mathew</div>
+          <nav className="flex gap-6 items-center" aria-label="Main navigation">
+            <a className="text-white/80 rounded-md px-2 py-1 shadow-inner text-neon-1" href="#home">Home</a>
+            <a className="text-white/80 rounded-md px-2 py-1" href="#about">About</a>
+            <a className="text-white/80 rounded-md px-2 py-1" href="#journey">Journey</a>
+            <a className="text-white/80 rounded-md px-2 py-1" href="#portfolio">Portfolio</a>
+            <a className="text-white/80 rounded-md px-2 py-1" href="#contact">Contact</a>
           </nav>
         </header>
 
         <main>
-          <section id="home" className="hero">
-            <div className="hero-left">
-             
-              <h1 className="animate-on-scroll">
-                <span className="accent">{displayText}</span>
+          <section id="home" className="grid md:grid-cols-[1fr_440px] gap-10 items-center min-h-screen px-14">
+            <div className="animate-on-scroll hero-left">
+              <h1 className="animate-on-scroll text-[40px] md:text-[64px] leading-[1.05] font-extrabold text-white drop-shadow-[0_6px_30px_rgba(139,92,246,0.08)]">
+                <span
+                  className="bg-gradient-to-r from-neon-2 to-[#6d28d9] bg-clip-text "
+                  style={{ WebkitBackgroundClip: 'text', backgroundClip: 'text', color: '#6d28d9' }}
+                >
+                  {displayText}
+                </span>
                 <span className="typing-cursor">|</span>
               </h1>
 
-              <div className="pills animate-on-scroll delay-1">
-                <span className="pill">PHP</span>
-                <span className="pill">JavaScript</span>
-                <span className="pill">HTML</span>
-                <span className="pill">VB.NET</span>
-                <span className="pill">Node.js</span>
-                <span className="pill">CSS</span>
+              <div className="flex gap-2 mt-5 flex-wrap animate-on-scroll delay-1">
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">PHP</span>
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">JavaScript</span>
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">HTML</span>
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">VB.NET</span>
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">Node.js</span>
+                <span className="bg-white/5 px-3 py-1 rounded-full text-sm text-white/80 border border-white/5">CSS</span>
               </div>
 
-              <div className="cta-row animate-on-scroll delay-2">
-                <button className="btn btn-primary">Projects</button>
-                <button className="btn btn-outline">Contact</button>
+              <div className="flex gap-4 mt-6 animate-on-scroll delay-2">
+                <button className="rounded-xl px-6 py-3 border border-white/6 text-white bg-transparent">Projects</button>
+                <button className="rounded-xl px-6 py-3 border border-white/6 text-white bg-transparent">Contact</button>
               </div>
             </div>
 
-          
           </section>
 
           <section id="about" className="section">
@@ -103,37 +106,37 @@ export default function Home() {
               <h2>About Me</h2>
             </div>
 
-            <div style={{display:'grid',gridTemplateColumns:'1fr 300px',gap:40,alignItems:'center'}}>
+            <div className="grid md:grid-cols-[1fr_300px] gap-10 items-center">
               <div className="animate-on-scroll delay-1">
-                <h3 style={{color:'var(--neon-2)',margin:'0 0 4px 0',fontSize:16}}>Hello, I'm</h3>
-                <h2 style={{fontSize:32,margin:'0 0 16px 0',fontWeight:700}}>Mel Mathew Perez Albason</h2>
-                <p className="muted" style={{margin:0,lineHeight:1.7,fontSize:16}}>
+                <h3 className="text-neon-2 m-0 text-[16px]">Hello, I'm</h3>
+                <h2 className="text-[32px] font-bold m-0 mb-4">Mel Mathew Perez Albason</h2>
+                <p className="text-white/80 m-0 leading-[1.7] text-[16px]">
                   I am a BS Information Technology student at Quezon City University. I enjoy troubleshooting computers and typing or holding a keyboard and also fiddling with the parts of the computer. I'm here to pursue a challenging and creative career where I acquire new skills, and contribute effectively to the organization. 
                 </p>
 
-                <div style={{display:'flex',gap:12,marginTop:24}} className="animate-on-scroll delay-3">
-                  <button className="btn btn-primary">View Resume</button>
-                  <button className="btn btn-outline">View Projects</button>
+                <div className="flex gap-3 mt-6 animate-on-scroll delay-3">
+                  <button className="rounded-xl px-5 py-2 border border-white/6 text-white bg-transparent">View Resume</button>
+                  <button className="rounded-xl px-5 py-2 border border-white/6 text-white bg-transparent">View Projects</button>
                 </div>
               </div>
 
-              <div style={{display:'flex',justifyContent:'center'}} className="animate-on-scroll delay-2">
+              <div className="flex justify-center animate-on-scroll delay-2">
                 <Image
                   src="/images/profile.png"
                   alt="Profile"
                   width={240}
                   height={240}
-                  style={{borderRadius: '50%', border: '4px solid rgba(255,255,255,0.06)'}}
+                  className="rounded-full border-[4px] border-white/6 object-cover"
                 />
               </div>
             </div>
           </section>
 
           <section id="journey" className="section">
-            <div className="stats">
-              <div className="stat-card animate-on-scroll"><h3>6</h3><p>TOTAL PROJECTS</p></div>
-              <div className="stat-card animate-on-scroll delay-1"><h3>4</h3><p>CERTIFICATES</p></div>
-              <div className="stat-card animate-on-scroll delay-2"><h3>9</h3><p>TECH STACKS</p></div>
+            <div className="flex gap-4 justify-between mb-10">
+              <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 flex-1 animate-on-scroll"><h3 className="m-0 text-2xl">6</h3><p className="text-white/60 mt-1 text-xs font-semibold">TOTAL PROJECTS</p></div>
+              <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 flex-1 animate-on-scroll delay-1"><h3 className="m-0 text-2xl">4</h3><p className="text-white/60 mt-1 text-xs font-semibold">CERTIFICATES</p></div>
+              <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 flex-1 animate-on-scroll delay-2"><h3 className="m-0 text-2xl">9</h3><p className="text-white/60 mt-1 text-xs font-semibold">TECH STACKS</p></div>
             </div>
 
             <div className="section-title animate-on-scroll delay-1">
@@ -141,72 +144,47 @@ export default function Home() {
               <p><i>A look into the studies and experiences that have honed my skills and shaped who I am today.</i></p>
             </div>
 
-              <div style={{display:'grid',gap:16}}>
-              <div className="card animate-on-scroll delay-2">
-                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
-                  <Image
-                    src="/images/qcu-logo.png"
-                    alt="QCU Logo"
-                    width={72}
-                    height={72}
-                    className="edu-logo"
-                  />
+              <div className="grid gap-4">
+                <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 animate-on-scroll delay-2">
+                  <div className="flex items-center gap-4">
+                    <Image src="/images/qcu-logo.png" alt="QCU Logo" width={72} height={72} className="w-[72px] h-[72px] rounded-md object-contain bg-white p-1 border border-black/6" />
+                    <div>
+                      <strong>Quezon City University</strong>
+                      <div className="text-white/60">Bachelor of Science in Information Technology • 2022 - Present</div>
+                    </div>
+                  </div>
+                </div>
 
-                  <div>
-                    <strong>Quezon City University</strong>
-                    <div className="muted">Bachelor of Science in Information Technology • 2022 - Present</div>
+                <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 animate-on-scroll delay-3">
+                  <div className="flex items-center gap-4">
+                    <Image src="/images/seaitt.png" alt="SEAITT Logo" width={72} height={72} className="w-[72px] h-[72px] rounded-md object-contain bg-white p-1 border border-black/6" />
+                    <div>
+                      <strong>South East Asia Institute of Trade And Technology</strong>
+                      <div className="text-white/60">Humanities and Social Sciences • 2019 - 2021</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 animate-on-scroll delay-4">
+                  <div className="flex items-center gap-4">
+                    <Image src="/images/b-silangan.png" alt="Bagong Silangan High School Logo" width={72} height={72} className="w-[72px] h-[72px] rounded-md object-contain bg-white p-1 border border-black/6" />
+                    <div>
+                      <strong>Bagong Silangan High School</strong>
+                      <div className="text-white/60">High School • 2014 - 2018</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-b from-white/2 to-white/1 p-6 rounded-xl border border-white/5 animate-on-scroll delay-5">
+                  <div className="flex items-center gap-4">
+                    <Image src="/images/b-e-silangan.png" alt="Bagong Silangan Elementary School Logo" width={72} height={72} className="w-[72px] h-[72px] rounded-md object-contain bg-white p-1 border border-black/6" />
+                    <div>
+                      <strong>Bagong Silangan Elementary School</strong>
+                      <div className="text-white/60">Elementary School • 2007 - 2013</div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="card animate-on-scroll delay-3">
-                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
-                  <Image
-                    src="/images/seaitt.png"
-                    alt="South East Asia Institute of Trade and Technology Logo"
-                    width={72}
-                    height={72}
-                    className="edu-logo"
-                  />
-                  <div>
-                    <strong>South East Asia Institute of Trade And Technology</strong>
-                    <div className="muted">Humanities and Social Sciences • 2019 - 2021</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card animate-on-scroll delay-4">
-                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
-                  <Image
-                    src="/images/b-silangan.png"
-                    alt="Bagong Silangan High School Logo"
-                    width={72}
-                    height={72}
-                    className="edu-logo"
-                  />
-                  <div>
-                    <strong>Bagong Silangan High School</strong>
-                    <div className="muted">High School • 2014 - 2018</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card animate-on-scroll delay-5">
-                <div className="edu-row" style={{display:'flex',alignItems:'center',gap:14}}>
-                  <Image
-                    src="/images/b-e-silangan.png"
-                    alt="Bagong Silangan Elementary School Logo"
-                    width={72}
-                    height={72}
-                    className="edu-logo"
-                  />
-                  <div>
-                    <strong>Bagong Silangan Elementary School</strong>
-                    <div className="muted">Elementary School • 2007 - 2013</div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
 
           <section id="portfolio" className="section">
