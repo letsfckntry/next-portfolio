@@ -357,19 +357,29 @@ export default function Home() {
               <p><i>You can also connect with me through my social media channels.</i></p>
             </div>
 
-            <div className="contact-wrap grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="max-w-2xl mx-auto">
               <div className="card animate-on-scroll delay-1">
                 <h3 className="text-lg md:text-xl">Get in Touch</h3>
-                <p className="muted text-sm md:text-base">Have something to discuss? Send me a message and let's talk.</p>
+                <p className="muted text-sm md:text-base">Send me a Message.</p>
                 <div className="mt-3 md:mt-4">
                   <input className="input text-sm md:text-base" placeholder="Your Name" />
                   <input className="input text-sm md:text-base" placeholder="Your Email" />
                   <textarea className="input text-sm md:text-base" rows={4} placeholder="Your Message" />
                   <button className="send-btn btn-hover text-sm md:text-base">Send Message</button>
                 </div>
+                
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <h3 className="text-lg md:text-xl mb-4"><b>Connect With Me</b></h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+                    <div className="pill text-center">LinkedIn</div>
+                    <a href="https://www.facebook.com/mathewww12" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">Facebook</a>
+                    <a href="https://github.com/letsfckntry" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">GitHub</a>
+                    <a href="https://www.tiktok.com/@matchuxszxc_" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">TikTok</a>
+                  </div>
+                </div>
               </div>
 
-              <div className="card animate-on-scroll delay-2">
+              <div className="card animate-on-scroll delay-2" style={{display: 'none'}}>
                 <h3 className="text-lg md:text-xl"><b>Connect With Me</b></h3>
                 <div className="grid grid-cols-2 gap-3 md:gap-4 mt-4">
                   <div className="pill">LinkedIn</div>
