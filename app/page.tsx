@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 export default function Home() {
   const [displayText, setDisplayText] = useState("");
@@ -9,6 +10,19 @@ export default function Home() {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startPos, setStartPos] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [prevTranslate, setPrevTranslate] = useState(0);
+  
+  // Contact form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formMessage, setFormMessage] = useState("");
 
   const texts = ["Hello I'm Mel Mathew", "This is my Portfolio"];
   
@@ -140,6 +154,35 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, textIndex, texts]);
 
+  // Slider drag/swipe handlers
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    setIsDragging(true);
+    const pos = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setStartPos(pos);
+  };
+
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+    if (!isDragging) return;
+    const currentPosition = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    const diff = currentPosition - startPos;
+    setCurrentTranslate(prevTranslate + diff);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    const movedBy = currentTranslate - prevTranslate;
+    
+    // Swipe threshold (50px)
+    if (movedBy < -50 && currentSlide < projects.length - 1) {
+      setCurrentSlide(currentSlide + 1);
+    } else if (movedBy > 50 && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+    
+    setCurrentTranslate(0);
+    setPrevTranslate(0);
+  };
+
   // Auto-play slider
   useEffect(() => {
     const interval = setInterval(() => {
@@ -149,9 +192,56 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [projects.length]);
 
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus("sending");
+    setFormMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormStatus("success");
+        setFormMessage("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setFormStatus("error");
+        setFormMessage(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus("error");
+      setFormMessage("An error occurred. Please try again later.");
+    }
+
+    // Reset status after 5 seconds
+    setTimeout(() => {
+      setFormStatus("idle");
+      setFormMessage("");
+    }, 5000);
+  };
+
   return (
     <div className="grid-overlay">
-      <div className="mx-auto max-w-[1200px] relative">
+      <ParticlesBackground />
+      <div className="mx-auto max-w-[1200px] relative pointer-events-none" style={{ zIndex: 10 }}>
         <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(26,29,41,0.9)] backdrop-blur-xl border-b border-[rgba(0,217,255,0.2)] flex items-center justify-between gap-5 px-4 sm:px-8 md:px-14 py-4 md:py-5">
           <div className="font-bold text-[18px] sm:text-[20px] md:text-[22px] bg-gradient-to-r from-[#00d9ff] to-[#00ffcc] bg-clip-text" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Mathew</div>
           <nav className="flex gap-3 sm:gap-4 md:gap-6 items-center" aria-label="Main navigation">
@@ -291,8 +381,18 @@ export default function Home() {
             <div className="relative max-w-full sm:max-w-xl md:max-w-2xl mx-auto px-8 sm:px-10 md:px-0">
               <div className="overflow-hidden rounded-xl md:rounded-2xl">
                 <div 
-                  className="flex transition-transform duration-500 ease-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                  className="flex transition-transform duration-500 ease-out select-none"
+                  style={{ 
+                    transform: `translateX(calc(-${currentSlide * 100}% + ${currentTranslate}px))`,
+                    cursor: isDragging ? 'grabbing' : 'grab'
+                  }}
+                  onMouseDown={handleDragStart}
+                  onMouseMove={handleDragMove}
+                  onMouseUp={handleDragEnd}
+                  onMouseLeave={handleDragEnd}
+                  onTouchStart={handleDragStart}
+                  onTouchMove={handleDragMove}
+                  onTouchEnd={handleDragEnd}
                 >
                   {projects.map((project, index) => (
                     <div key={index} className="min-w-full px-1 sm:px-2 md:px-4">
@@ -302,7 +402,8 @@ export default function Home() {
                           alt={project.title}
                           width={800}
                           height={400}
-                          className="w-full h-[200px] xs:h-[220px] sm:h-[280px] md:h-[350px] lg:h-[400px] object-cover rounded-xl md:rounded-2xl border border-[rgba(0,217,255,0.3)]"
+                          className="w-full h-[200px] xs:h-[220px] sm:h-[280px] md:h-[350px] lg:h-[400px] object-cover rounded-xl md:rounded-2xl border border-[rgba(0,217,255,0.3)] pointer-events-none"
+                          draggable={false}
                         />
                         <h4 className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl font-bold">{project.title}</h4>
                         <p className="text-white/80 mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed">{project.description}</p>
@@ -361,24 +462,63 @@ export default function Home() {
               <div className="card animate-on-scroll delay-1">
                 <h3 className="text-lg md:text-xl">Get in Touch</h3>
                 <p className="muted text-sm md:text-base">Send me a Message.</p>
-                <div className="mt-3 md:mt-4">
-                  <input className="input text-sm md:text-base" placeholder="Your Name" />
-                  <input className="input text-sm md:text-base" placeholder="Your Email" />
-                  <textarea className="input text-sm md:text-base" rows={4} placeholder="Your Message" />
-                  <button className="send-btn btn-hover text-sm md:text-base">Send Message</button>
-                </div>
+                <form onSubmit={handleSubmit} className="mt-3 md:mt-4">
+                  <input 
+                    className="input text-sm md:text-base" 
+                    placeholder="Your Name" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <input 
+                    className="input text-sm md:text-base" 
+                    placeholder="Your Email" 
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <textarea 
+                    className="input text-sm md:text-base" 
+                    rows={4} 
+                    placeholder="Your Message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <button 
+                    type="submit"
+                    className="send-btn btn-hover text-sm md:text-base"
+                    disabled={formStatus === "sending"}
+                  >
+                    {formStatus === "sending" ? "Sending..." : "Send Message"}
+                  </button>
+                  
+                  {formMessage && (
+                    <div className={`mt-4 p-3 rounded-lg text-sm ${
+                      formStatus === "success" 
+                        ? "bg-green-500/20 text-green-300 border border-green-500/30" 
+                        : "bg-red-500/20 text-red-300 border border-red-500/30"
+                    }`}>
+                      {formMessage}
+                    </div>
+                  )}
+                </form>
                 
                 <div className="mt-6 pt-6 border-t border-white/10">
                   <h3 className="text-lg md:text-xl mb-4"><b>Connect With Me</b></h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-                    <div className="pill text-center">LinkedIn</div>
+                    <a href="https://www.instagram.com/matiyeosczxc_/" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">Instagram</a>
                     <a href="https://www.facebook.com/mathewww12" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">Facebook</a>
                     <a href="https://github.com/letsfckntry" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">GitHub</a>
                     <a href="https://www.tiktok.com/@matchuxszxc_" target="_blank" rel="noopener noreferrer" className="pill cursor-pointer hover:scale-105 transition-transform text-center">TikTok</a>
                   </div>
                 </div>
               </div>
-
+              
               <div className="card animate-on-scroll delay-2" style={{display: 'none'}}>
                 <h3 className="text-lg md:text-xl"><b>Connect With Me</b></h3>
                 <div className="grid grid-cols-2 gap-3 md:gap-4 mt-4">
@@ -395,5 +535,7 @@ export default function Home() {
         <footer style={{textAlign:'center',padding:'28px 0',color:'rgba(255,255,255,0.55)'}}>© 2025 Mel Mathew Perez Albason</footer>
       </div>
     </div>
+    
   );
 }
+

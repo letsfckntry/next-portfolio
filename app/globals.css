@@ -83,6 +83,7 @@ body {
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative;
+  pointer-events: auto;
 }
 .nav-hover:hover,
 .nav-hover:focus {
@@ -104,6 +105,11 @@ body {
 /* Moving indicator below active nav link */
 .nav-indicator {
   display: none;
+}
+
+/* Re-enable pointer events for interactive elements */
+button, a, input, textarea, select, .btn-hover, .pill {
+  pointer-events: auto;
 }
 
 /* Typing cursor */
