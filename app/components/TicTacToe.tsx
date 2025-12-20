@@ -11,7 +11,7 @@ export default function TicTacToe() {
   const [winningLine, setWinningLine] = useState<number[]>([]);
   const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 });
 
-  const calculateWinner = (squares: Player[]): { winner: Player; line: number[] } | null => {
+  const calculateWinner = (squares: Player[]): { winner: "X" | "O"; line: number[] } | null => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -38,7 +38,7 @@ export default function TicTacToe() {
       setWinningLine(result.line);
       setScores((prev) => ({
         ...prev,
-        [result.winner]: prev[result.winner as "X" | "O"] + 1,
+        [result.winner]: prev[result.winner] + 1,
       }));
     } else if (board.every((square) => square !== null)) {
       setWinner("Draw");
