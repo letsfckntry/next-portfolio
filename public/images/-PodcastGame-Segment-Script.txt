@@ -1,0 +1,113 @@
+🎙 Podcast/Game Segment Script
+Title: Security Maintenance Models & Digital Forensics
+
+✅ Intro
+Host:
+“Hello Mam and classmates! Kami ang group na nasa dulo, and we’ll report on the last part of the given topics: Security Maintenance Models and Digital Forensics.
+Our style will be like a game/podcast segment. These are my guests—my groupmates!
+I created scenarios related to our topic. They don’t know the exact details, but I advised them to read the PowerPoint for some idea.
+After this segment, we’ll understand why these models and digital forensics are so important.
+So, let’s start!”
+
+Scenario 1 – External Monitoring
+Host:
+“May bagong ransomware na kumakalat sa buong mundo. Kung IT manager ka, ano gagawin mo?”
+(Let them answer anything.)
+Host (Explain):
+“Pwede yang idea mo! Relating to our topic, this is External Monitoring—binabantayan natin ang mga threats sa labas ng organization or business.
+We use tools like:
+
+CERT alerts (Computer Emergency Response Team alerts)
+Security vendor bulletins
+Public threat feeds or news
+
+Analogy: Para itong malaking gate sa labas ng bahay mo bago makapasok ang magnanakaw.”
+
+Scenario 2 – Internal Monitoring
+Host:
+“Nagbabantay ka ng proxy server, makikita mo doon kung ano ang mga bawal ma-access na website. Nakita mo may nag-request ng HTTP. Chinheck mo ang IP address—printer pala! Weird, di ba? Ano gagawin mo?”
+(Let them react.)
+Host (Explain):
+“Isa itong dahilan kung bakit mahalaga ang Internal Monitoring.
+
+Alam mo kung ano ang devices sa network.
+Gumagamit tayo ng IDPS (Intrusion Detection and Prevention System) para ma-block ang attack.
+Difference Analysis compares current state vs baseline para makita ang changes.
+
+Analogy: Para itong CCTV sa bahay mo—kapag may gumalaw na kakaiba, alam mong may ibang tao.”
+
+Scenario 3 – Planning & Risk Assessment
+Host:
+“Imagine lilipat ang company mo from local to cloud. Ano ang dapat gawin bago mag-migrate?”
+(Let them guess.)
+Host (Explain):
+“Mahalaga ang Planning and Risk Assessment:
+
+Review if secured ba ang system bago i-upload sa cloud.
+Check risks like privacy issues and connectivity problems.
+Prepare risk assessment documents.
+
+Analogy: Para itong pagplano ng road trip—bago ka umalis, check mo muna lahat ng dala mo.”
+
+Scenario 4 – Vulnerability Assessment & Remediation
+Host:
+“Scenario: QA ka, nakita mo may butas ang website ng company. Ano next?”
+(Let them guess.)
+Host (Explain):
+“Companies do Vulnerability Assessment and Remediation:
+
+Penetration Testing (ethical hacking) para makita ang butas.
+Document and fix vulnerabilities.
+
+Analogy: Para itong paghanap ng crack sa pader bago makapasok ang magnanakaw.”
+
+Scenario 5 – Readiness & Review
+Host:
+“Bakit kailangan ng disaster recovery drill?”
+(Let them guess.)
+Host (Explain):
+“Readiness and Review checks if policies are followed and systems work during disasters.
+Analogy: Para itong fire drill—practice para handa sa totoong emergency.”
+
+
+✅ Digital Forensics Segment
+Host:
+“Kung gusto nyo maging detective, magugustuhan nyo ito!
+Scenario: May data breach. Paano malalaman ang nangyari? Nakita mo na may nag-bypass sa network at dinelete lahat ng traces. Paano mo malalaman?”
+
+Steps in Digital Forensics (with explanation for beginners)
+1. Identify – Alin ang system na inatake
+
+Goal: Hanapin kung anong computer, server, o device ang na-compromise.
+How: Check logs from firewalls, proxies, and servers. Look for unusual IP addresses or failed logins. Use monitoring tools like SIEM (Splunk).
+
+
+2. Acquire Evidence – Kopyahin nang hindi binabago
+
+Goal: Gumawa ng exact copy ng data nang hindi naa-alter ang original.
+How: Use disk imaging tools (FTK Imager, EnCase) and memory dumps. Always use write blockers para hindi mabago ang original data.
+
+
+3. Authenticate – Siguraduhin na tama at original ang ebidensya
+
+Goal: Patunayan na hindi na-tamper ang evidence.
+How: Generate hash values (MD5, SHA-256) for original and copy. If they match, authentic ang copy.
+
+
+4. Analyze – Hanapin ang clues
+
+Goal: Alamin kung ano ang nangyari.
+How: Use forensic tools (Autopsy, X-Ways) to check files, logs, and deleted data. Look for malware, suspicious scripts, or unauthorized access. Reconstruct timeline.
+
+
+5. Report Findings – Gumawa ng report para ma-improve ang process
+
+Goal: I-detalye ang nangyari para sa management o legal team.
+How: Include what happened, how it happened, affected data, screenshots, logs, and hash verification. Suggest security improvements.
+
+
+Extra:
+Kung aabot sa korte, kailangan ng Chain of Custody—record kung sino humawak ng evidence at kailan, para valid ito.
+
+✅ Closing
+“Digital forensics is like being a cyber detective—preserve, analyze, and report. And remember: Security maintenance isn’t a one-time job—it’s continuous. Thanks for joining CyberTalk! Stay vigilant, stay secure.”

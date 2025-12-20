@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ParticlesBackground from "./components/ParticlesBackground";
+import TicTacToe from "./components/TicTacToe";
 
 export default function Home() {
   const [displayText, setDisplayText] = useState("");
@@ -249,6 +250,7 @@ export default function Home() {
               <div className="flex gap-3 sm:gap-4 md:gap-6 items-center">
                 <a className="text-white/80 rounded-md px-2 py-1 text-sm md:text-base shadow-inner text-neon-1 nav-hover" href="#home">Home</a>
                 <a className="text-white/80 rounded-md px-2 py-1 text-sm md:text-base nav-hover" href="#about">About</a>
+                <a className="text-white/80 rounded-md px-2 py-1 text-sm md:text-base nav-hover" href="#game">Game</a>
                 <a className="text-white/80 rounded-md px-2 py-1 text-sm md:text-base nav-hover" href="#contact">Contact</a>
               </div>
               <span className="nav-indicator" aria-hidden="true"></span>
@@ -449,6 +451,17 @@ export default function Home() {
                   />
                 ))}
               </div>
+            </div>
+          </section>
+
+          <section id="game" className="section">
+            <div className="section-title animate-on-scroll">
+              <h2><b>Play Tic-Tac-Toe</b></h2>
+              <p><i>Challenge yourself or a friend to a classic game of XOX!</i></p>
+            </div>
+
+            <div className="animate-on-scroll delay-1">
+              <TicTacToe />
             </div>
           </section>
 
