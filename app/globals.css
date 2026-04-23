@@ -26,80 +26,225 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--font-geist-sans, Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial);
-  background: var(--bg-900);
-  background-image: radial-gradient(ellipse 1400px 900px at 15% 20%, rgba(0,217,255,0.15), transparent 60%), radial-gradient(ellipse 1000px 700px at 85% 80%, rgba(0,255,204,0.12), transparent 55%), linear-gradient(180deg, #1a1d29 0%, #252936 100%);
-  background-attachment: fixed;
-  color: var(--text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 
-/* Grid overlay (kept as custom pseudo-element) */
-.grid-overlay { position: relative; min-height: 100vh; }
-.grid-overlay::before {
-  content: "";
-  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.2;
-  background-image: linear-gradient(rgba(0,217,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,217,255,0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
+/* Grid overlay removed for clean black design */
+.grid-overlay { 
+  position: relative; 
+  min-height: 100vh;
+  background: #0a0a0a;
 }
 
-/* Legacy helpers still used in markup */
-.section { padding: 80px 56px 40px; display: flex; flex-direction: column; justify-content: center; }
-.section-title { text-align: center; margin-bottom: 32px; }
-.section-title h2 { font-size: 36px; background: linear-gradient(135deg, var(--neon-1) 0%, var(--neon-2) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0 0 8px 0; }
-.section-title p { color: var(--text-muted); margin: 0; }
+/* Minimalist section styling */
+.section { 
+  padding: 100px 80px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-.project { background: linear-gradient(135deg, rgba(0,217,255,0.08), rgba(0,255,204,0.05)); padding: 24px; border-radius: 16px; border: 1px solid rgba(0,217,255,0.2); backdrop-filter: blur(8px); }
+.section-title { 
+  text-align: left; 
+  margin-bottom: 60px;
+  position: relative;
+}
 
-.card { background: linear-gradient(135deg, rgba(0,217,255,0.08), rgba(0,255,204,0.04)); padding: 24px; border-radius: 20px; border: 1px solid rgba(0,217,255,0.25); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 120px;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
 
-.input { width: 100%; padding: 14px; border-radius: 12px; border: 1px solid rgba(0,217,255,0.25); background: rgba(37,41,54,0.6); color: var(--text); margin-bottom: 12px; transition: all 0.3s ease; }
-.input:focus { outline: none; border-color: var(--neon-1); box-shadow: 0 0 0 3px rgba(0,217,255,0.15); }
-.send-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--neon-1) 0%, var(--neon-2) 100%); border-radius: 12px; color: #1a1d29; border: 0; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-.send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,217,255,0.5); }
-.pill { background: rgba(0,217,255,0.15); padding: 8px 16px; border-radius: 999px; font-size: 13px; color: var(--neon-2); border: 1px solid rgba(0,217,255,0.3); display: inline-block; transition: all 0.3s ease; }
-.pill:hover { background: rgba(0,217,255,0.25); border-color: var(--neon-1); }
-.muted { color: var(--text-muted); }
+.section-title h2 { 
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
 
-/* Smooth hover glow + lift for buttons (keeps original colors) */
+.section-title p { 
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.project { 
+  background: #111111; 
+  padding: 0; 
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.project:hover {
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-5px);
+}
+
+.card { 
+  background: #111111; 
+  padding: 40px; 
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.input { 
+  width: 100%; 
+  padding: 16px 0; 
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2); 
+  background: transparent; 
+  color: #ffffff; 
+  margin-bottom: 30px; 
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.input:focus { 
+  outline: none; 
+  border-bottom-color: #ffffff;
+}
+
+.input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.send-btn { 
+  width: 100%; 
+  padding: 18px; 
+  background: #ffffff; 
+  color: #0a0a0a; 
+  border: none; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+.send-btn:hover { 
+  background: rgba(255,255,255,0.9);
+}
+
+.pill { 
+  background: transparent; 
+  padding: 12px 24px; 
+  font-size: 13px; 
+  color: #ffffff; 
+  border: 1px solid rgba(255,255,255,0.2); 
+  display: inline-block; 
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pill:hover { 
+  background: #ffffff;
+  color: #0a0a0a;
+  border-color: #ffffff;
+}
+
+.muted { 
+  color: rgba(255,255,255,0.5);
+}
+
+/* Minimalist button hover */
 .btn-hover {
   transition: all 0.3s ease;
-  will-change: transform, box-shadow;
-  border-color: rgba(0,217,255,0.3) !important;
-}
-.btn-hover:hover,
-.btn-hover:focus {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(0,217,255,0.15), rgba(0,255,204,0.1)) !important;
-  border-color: var(--neon-1) !important;
-  box-shadow: 0 12px 40px rgba(0,217,255,0.3), 0 0 48px rgba(0,255,204,0.2);
-}
-.btn-hover:focus {
-  outline: none;
-  box-shadow: 0 12px 40px rgba(0,217,255,0.3), 0 0 48px rgba(0,255,204,0.2), 0 0 0 3px rgba(0,217,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  background: transparent !important;
+  color: #ffffff !important;
 }
 
-/* Navigation link hover (no movement, subtle neon glow) */
+.btn-hover:hover,
+.btn-hover:focus {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+  border-color: #ffffff !important;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+/* Minimalist Navigation */
 .nav-hover {
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative;
   pointer-events: auto;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 500;
 }
+
 .nav-hover:hover,
 .nav-hover:focus {
-  background: linear-gradient(135deg, var(--neon-1), var(--neon-2));
-  color: #1a1d29;
-  border-radius: 8px;
+  color: #ffffff;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0,217,255,0.4);
+}
+
+.nav-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-hover:hover::after {
+  width: 100%;
 }
 
 /* Active nav link */
 .nav-active {
-  background: linear-gradient(135deg, var(--neon-1), var(--neon-2)) !important;
-  color: #1a1d29 !important;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,217,255,0.4);
+  color: #ffffff !important;
+}
+
+.nav-active::after {
+  width: 100%;
+}
+
+/* Vector Navigation Links - simplified */
+.vector-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.vector-nav-link:hover {
+  color: #ffffff;
+}
+
+.vector-nav-link.nav-active {
+  color: #ffffff !important;
 }
 
 /* Moving indicator below active nav link */
@@ -115,6 +260,8 @@ button, a, input, textarea, select, .btn-hover, .pill {
 /* Typing cursor */
 @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
 .typing-cursor { animation: blink 1s infinite; color: var(--neon-2); font-weight: 300; }
+
+/* Remove all vector art specific styles */
 
 /* Scroll Animations */
 @keyframes fadeInUp { from{opacity:0; transform:translateY(60px)} to{opacity:1; transform:translateY(0)} }
