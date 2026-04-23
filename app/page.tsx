@@ -298,7 +298,7 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[220px] md:max-w-[300px] ">
+                  <div className="relative w-full max-w-[220px] md:max-w-[300px]">-4">
                     <Image
                       src="/images/dddd.png"
                       alt="Mel Mathew Perez Albason"
@@ -307,7 +307,6 @@ export default function Home() {
                       className="w-full h-auto object-cover scale-x-[-1]"
                       priority
                       quality={100}
-                      unoptimized
                     />
                   </div>
                 </div>
