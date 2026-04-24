@@ -298,7 +298,7 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[220px] md:max-w-[300px]">-4">
+                  <div className="relative w-full max-w-[220px] md:max-w-[300px]">
                     <Image
                       src="/images/dddd.png"
                       alt="Mel Mathew Perez Albason"
@@ -307,6 +307,7 @@ export default function Home() {
                       className="w-full h-auto object-cover scale-x-[-1]"
                       priority
                       quality={100}
+                      unoptimized
                     />
                   </div>
                 </div>
@@ -355,27 +356,47 @@ export default function Home() {
 
             <div className="grid gap-8">
               <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2022 - PRESENT</div>
-                <h3 className="text-[18px] font-bold text-white mb-2">Quezon City University</h3>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)]">Bachelor of Science in Information Technology</p>
+                <div className="flex items-center gap-4 mb-2">
+                  <Image src="/images/qcu-logo.png" alt="QCU Logo" width={60} height={60} className="object-contain" />
+                  <div>
+                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2022 - PRESENT</div>
+                    <h3 className="text-[18px] font-bold text-white">Quezon City University</h3>
+                  </div>
+                </div>
+                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Bachelor of Science in Information Technology</p>
               </div>
 
               <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2019 - 2021</div>
-                <h3 className="text-[18px] font-bold text-white mb-2">South East Asia Institute of Trade And Technology</h3>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)]">Humanities and Social Sciences</p>
+                <div className="flex items-center gap-4 mb-2">
+                  <Image src="/images/seaitt.png" alt="SEAITT Logo" width={60} height={60} className="object-contain" />
+                  <div>
+                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2019 - 2021</div>
+                    <h3 className="text-[18px] font-bold text-white">South East Asia Institute of Trade And Technology</h3>
+                  </div>
+                </div>
+                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Humanities and Social Sciences</p>
               </div>
 
               <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2014 - 2018</div>
-                <h3 className="text-[18px] font-bold text-white mb-2">Bagong Silangan High School</h3>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)]">High School</p>
+                <div className="flex items-center gap-4 mb-2">
+                  <Image src="/images/b-silangan.png" alt="Bagong Silangan HS Logo" width={60} height={60} className="object-contain" />
+                  <div>
+                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2014 - 2018</div>
+                    <h3 className="text-[18px] font-bold text-white">Bagong Silangan High School</h3>
+                  </div>
+                </div>
+                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">High School</p>
               </div>
 
               <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2007 - 2013</div>
-                <h3 className="text-[18px] font-bold text-white mb-2">Bagong Silangan Elementary School</h3>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)]">Elementary School</p>
+                <div className="flex items-center gap-4 mb-2">
+                  <Image src="/images/b-e-silangan.png" alt="Bagong Silangan ES Logo" width={60} height={60} className="object-contain" />
+                  <div>
+                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2007 - 2013</div>
+                    <h3 className="text-[18px] font-bold text-white">Bagong Silangan Elementary School</h3>
+                  </div>
+                </div>
+                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Elementary School</p>
               </div>
             </div>
 
@@ -438,7 +459,7 @@ export default function Home() {
                         </div>
                         <div className="project-content">
                           <h4 className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl font-bold flex items-center gap-2">
-                            <svg className="w-5 h-5 text-[#00d9ff]" viewBox="0 0 24 24" fill="currentColor">
+                            <svg className="w-5 h-5 text-[white]" viewBox="0 0 24 24" fill="currentColor">
                               <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                             {project.title}
@@ -454,7 +475,7 @@ export default function Home() {
               {/* Navigation Buttons */}
               <button
                 onClick={() => setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1))}
-                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 md:-translate-x-4 bg-gradient-to-r from-[#00d9ff] to-[#00ffcc] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all z-10 touch-manipulation"
+                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 md:-translate-x-4 bg-gradient-to-r from-[white] to-[white] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-white/50 transition-all z-10 touch-manipulation"
                 aria-label="Previous project"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
@@ -464,7 +485,7 @@ export default function Home() {
 
               <button
                 onClick={() => setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1))}
-                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 md:translate-x-4 bg-gradient-to-r from-[#00d9ff] to-[#00ffcc] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-cyan-500/50 transition-all z-10 touch-manipulation"
+                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 md:translate-x-4 bg-gradient-to-r from-[white] to-[white] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-white/50 transition-all z-10 touch-manipulation"
                 aria-label="Next project"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
@@ -480,7 +501,7 @@ export default function Home() {
                     onClick={() => setCurrentSlide(index)}
                     className={`h-1.5 sm:h-2 rounded-full transition-all touch-manipulation ${
                       currentSlide === index 
-                        ? 'bg-gradient-to-r from-[#00d9ff] to-[#00ffcc] w-6 sm:w-8' 
+                        ? 'bg-gradient-to-r from-[white] to-[white] w-6 sm:w-8' 
                         : 'bg-white/30 hover:bg-white/50 w-1.5 sm:w-2'
                     }`}
                     aria-label={`Go to project ${index + 1}`}

@@ -73,7 +73,7 @@ export default function TicTacToe() {
         {/* Score Board */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="bg-[rgba(0,217,255,0.15)] p-3 rounded-xl text-center border border-[rgba(0,217,255,0.3)]">
-            <div className="text-2xl font-bold text-[#00d9ff]">X</div>
+            <div className="text-2xl font-bold text-[white]">X</div>
             <div className="text-sm text-white/60 mt-1">{scores.X} wins</div>
           </div>
           <div className="bg-[rgba(255,255,255,0.05)] p-3 rounded-xl text-center border border-white/10">
@@ -81,7 +81,7 @@ export default function TicTacToe() {
             <div className="text-sm text-white/60 mt-1">{scores.draws}</div>
           </div>
           <div className="bg-[rgba(0,255,204,0.15)] p-3 rounded-xl text-center border border-[rgba(0,255,204,0.3)]">
-            <div className="text-2xl font-bold text-[#00ffcc]">O</div>
+            <div className="text-2xl font-bold text-[white]">O</div>
             <div className="text-sm text-white/60 mt-1">{scores.O} wins</div>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function TicTacToe() {
                   It's a Draw!
                 </span>
               ) : (
-                <span className="bg-gradient-to-r from-[#00d9ff] to-[#00ffcc] bg-clip-text" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+                <span className="bg-gradient-to-r from-[white] to-[white] bg-clip-text" style={{WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
                   Player {winner} Wins! 🎉
                 </span>
               )}
@@ -103,7 +103,7 @@ export default function TicTacToe() {
           ) : (
             <div className="text-lg text-white/80">
               Next Player:{" "}
-              <span className={`font-bold ${isXNext ? "text-[#00d9ff]" : "text-[#00ffcc]"}`}>
+              <span className={`font-bold ${isXNext ? "text-[white]" : "text-[white]"}`}>
                 {isXNext ? "X" : "O"}
               </span>
             </div>
@@ -121,7 +121,7 @@ export default function TicTacToe() {
                 aspect-square rounded-lg text-4xl font-bold transition-all
                 ${cell 
                   ? winningLine.includes(index)
-                    ? "bg-gradient-to-br from-[#00d9ff] to-[#00ffcc] border-2 border-[#00d9ff] shadow-lg shadow-cyan-500/50 animate-pulse"
+                    ? "bg-gradient-to-br from-[white] to-[white] border-2 border-[white] shadow-lg shadow-white/50 animate-pulse"
                     : "bg-[rgba(0,217,255,0.2)] border-2 border-[rgba(0,217,255,0.4)]"
                   : "bg-[rgba(255,255,255,0.05)] border-2 border-white/10 hover:bg-[rgba(0,217,255,0.15)] hover:border-[rgba(0,217,255,0.3)]"
                 }
@@ -130,7 +130,7 @@ export default function TicTacToe() {
               `}
             >
               {cell && (
-                <span className={cell === "X" ? "text-[#00d9ff]" : "text-[#00ffcc]"}>
+                <span className={cell === "X" ? "text-[white]" : "text-[white]"}>
                   {cell}
                 </span>
               )}
@@ -142,7 +142,7 @@ export default function TicTacToe() {
         <div className="flex gap-3">
           <button
             onClick={resetGame}
-            className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold border-2 border-[rgba(0,217,255,0.5)] text-white bg-[rgba(0,217,255,0.1)] hover:bg-[rgba(0,217,255,0.2)] hover:border-[#00d9ff] transition-all active:scale-95"
+            className="flex-1 rounded-xl px-4 py-3 text-sm font-semibold border-2 border-[rgba(0,217,255,0.5)] text-white bg-[rgba(0,217,255,0.1)] hover:bg-[rgba(0,217,255,0.2)] hover:border-[white] transition-all active:scale-95"
           >
             New Game
           </button>
