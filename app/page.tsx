@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ParticlesBackground from "./components/ParticlesBackground";
-import TicTacToe from "./components/TicTacToe";
+// import TicTacToe from "./components/TicTacToe";
 
 export default function Home() {
   const [displayText, setDisplayText] = useState("");
@@ -243,9 +243,9 @@ export default function Home() {
     <div className="grid-overlay">
       <ParticlesBackground />
       <div className="mx-auto max-w-[1200px] relative pointer-events-none" style={{ zIndex: 10 }}>
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-5 px-8 md:px-20 py-6">
-          <div className="font-bold text-[20px] md:text-[24px] text-white tracking-[4px]">MEL MATHEW</div>
-          <nav className="flex gap-8 md:gap-12 items-center" aria-label="Main navigation">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-5 px-4 md:px-8 lg:px-20 py-4 md:py-6">
+          <div className="font-bold text-[16px] md:text-[20px] lg:text-[24px] text-white tracking-[2px] md:tracking-[4px]">MEL MATHEW</div>
+          <nav className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-12 items-center text-[10px] sm:text-[12px] md:text-[14px]" aria-label="Main navigation">
             <a className="vector-nav-link nav-hover" href="#home">HOME</a>
             <a className="vector-nav-link nav-hover" href="#about">ABOUT</a>
             <a className="vector-nav-link nav-hover" href="#portfolio">PORTFOLIO</a>
@@ -254,32 +254,32 @@ export default function Home() {
         </header>
 
         <main>
-          <section id="home" className="min-h-screen flex items-center justify-center px-8 md:px-20 pt-32 md:pt-24 relative">
+          <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-20 pt-24 sm:pt-28 md:pt-32 relative">
             <div className="max-w-6xl w-full">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Left side - Content */}
                 <div className="order-2 md:order-1">
                   {/* Top line */}
                   <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-12"></div>
                   
-                  <h1 className="text-[36px] md:text-[56px] lg:text-[72px] font-bold text-white leading-none tracking-[4px] mb-6">
+                  <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold text-white leading-none tracking-[2px] md:tracking-[4px] mb-4 md:mb-6">
                     MEL MATHEW ALBASON
                   </h1>
                   
-                  <p className="text-[12px] md:text-[14px] text-[rgba(255,255,255,0.5)] tracking-[3px] uppercase mb-12">
+                  <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] text-[rgba(255,255,255,0.5)] tracking-[2px] md:tracking-[3px] uppercase mb-8 md:mb-12">
                     DEVELOPER & DESIGNER
                   </p>
                   
                   {/* Bottom line */}
-                  <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-12"></div>
+                  <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-8 md:mb-12"></div>
                   
                   <div className="text-left">
-                    <p className="text-[13px] md:text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed mb-8">
+                    <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed mb-6 md:mb-8">
                       BS Information Technology student at Quezon City University. Passionate about web development, 
                       troubleshooting, and creating innovative solutions.
                     </p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)] uppercase tracking-[2px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-[10px] sm:text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)] uppercase tracking-[1px] md:tracking-[2px]">
                       <div>
                         <div className="mb-2 text-white">Address</div>
                         <div>Quezon City, Philippines</div>
@@ -298,7 +298,7 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[220px] md:max-w-[300px]">
+                  <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px]">
                     <Image
                       src="/images/dddd.png"
                       alt="Mel Mathew Perez Albason"
@@ -511,16 +511,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="game" className="section">
-            <div className="section-title animate-on-scroll">
-              <h2><b>Play Tic-Tac-Toe</b></h2>
-              <p><i>Challenge yourself or a friend to a classic game of XOX!</i></p>
-            </div>
-
-            <div className="animate-on-scroll delay-1">
-              <TicTacToe />
-            </div>
-          </section>
+ 
 
           <section id="contact" className="section">
             <div className="section-title">
