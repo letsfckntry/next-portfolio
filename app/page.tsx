@@ -6,15 +6,17 @@ import ParticlesBackground from "./components/ParticlesBackground";
 // import TicTacToe from "./components/TicTacToe";
 
 export default function Home() {
-  const [displayText, setDisplayText] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [nameText, setNameText] = useState("");
+  const [descText, setDescText] = useState("");
+  const [addressText, setAddressText] = useState("");
+  const [emailText, setEmailText] = useState("");
+  const [websiteText, setWebsiteText] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState(0);
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
+  const [showCertificates, setShowCertificates] = useState(false);
   
   // Contact form state
   const [formData, setFormData] = useState({
@@ -25,7 +27,21 @@ export default function Home() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [formMessage, setFormMessage] = useState("");
 
-  const texts = ["Hello I'm Mel Mathew", "This is my Portfolio"];
+  const fullName = "MEL MATHEW ALBASON";
+  const fullDesc = "BS Information Technology student at Quezon City University. Passionate about web development, troubleshooting, and creating innovative solutions.";
+  const fullAddress = "Quezon City, Philippines";
+  const fullEmail = "melmathewzxc12@gmail.com";
+  const fullWebsite = "www.melmathew.dev";
+
+  // Certificate images - add your certificate image paths here
+  const certificates = [
+    "/images/cybersecurity.png",
+    "/images/ethical.png",
+    "/images/ignite.png",
+    "/images/maralabs.png",
+    "/images/tech.png"
+  
+  ];
   
   const projects = [
     {
@@ -45,6 +61,56 @@ export default function Home() {
     }
   ];
 
+  // Typing animation for name
+  useEffect(() => {
+    if (nameText.length < fullName.length) {
+      const timeout = setTimeout(() => {
+        setNameText(fullName.slice(0, nameText.length + 1));
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [nameText]);
+
+  // Typing animation for description (starts after name is complete)
+  useEffect(() => {
+    if (nameText === fullName && descText.length < fullDesc.length) {
+      const timeout = setTimeout(() => {
+        setDescText(fullDesc.slice(0, descText.length + 1));
+      }, 30);
+      return () => clearTimeout(timeout);
+    }
+  }, [nameText, descText]);
+
+  // Typing animation for address (starts after description is complete)
+  useEffect(() => {
+    if (descText === fullDesc && addressText.length < fullAddress.length) {
+      const timeout = setTimeout(() => {
+        setAddressText(fullAddress.slice(0, addressText.length + 1));
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [descText, addressText]);
+
+  // Typing animation for email (starts after address is complete)
+  useEffect(() => {
+    if (addressText === fullAddress && emailText.length < fullEmail.length) {
+      const timeout = setTimeout(() => {
+        setEmailText(fullEmail.slice(0, emailText.length + 1));
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [addressText, emailText]);
+
+  // Typing animation for website (starts after email is complete)
+  useEffect(() => {
+    if (emailText === fullEmail && websiteText.length < fullWebsite.length) {
+      const timeout = setTimeout(() => {
+        setWebsiteText(fullWebsite.slice(0, websiteText.length + 1));
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [emailText, websiteText]);
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -54,7 +120,11 @@ export default function Home() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-up');
+          // Add 'animated' class to trigger the animation
+          entry.target.classList.add('animated');
+        } else {
+          // Remove 'animated' class when element leaves viewport
+          entry.target.classList.remove('animated');
         }
       });
     }, observerOptions);
@@ -129,31 +199,6 @@ export default function Home() {
       io.disconnect();
     };
   }, []);
-
-  useEffect(() => {
-    const currentText = texts[textIndex];
-    
-    const timeout = setTimeout(() => {
-      if (!isDeleting && charIndex < currentText.length) {
-        // Typing
-        setDisplayText(currentText.substring(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
-      } else if (isDeleting && charIndex > 0) {
-        // Deleting
-        setDisplayText(currentText.substring(0, charIndex - 1));
-        setCharIndex(charIndex - 1);
-      } else if (!isDeleting && charIndex === currentText.length) {
-        // Pause before deleting
-        setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && charIndex === 0) {
-        // Move to next text
-        setIsDeleting(false);
-        setTextIndex((textIndex + 1) % texts.length);
-      }
-    }, isDeleting ? 50 : 100);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, textIndex, texts]);
 
   // Slider drag/swipe handlers
   const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
@@ -262,8 +307,8 @@ export default function Home() {
                   {/* Top line */}
                   <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-12"></div>
                   
-                  <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold text-white leading-none tracking-[2px] md:tracking-[4px] mb-4 md:mb-6">
-                    MEL MATHEW ALBASON
+                  <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold text-white leading-none tracking-[2px] md:tracking-[4px] mb-4 md:mb-6 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
+                    {nameText}<span className="animate-pulse">|</span>
                   </h1>
                   
                   <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] text-[rgba(255,255,255,0.5)] tracking-[2px] md:tracking-[3px] uppercase mb-8 md:mb-12">
@@ -274,23 +319,22 @@ export default function Home() {
                   <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-8 md:mb-12"></div>
                   
                   <div className="text-left">
-                    <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed mb-6 md:mb-8">
-                      BS Information Technology student at Quezon City University. Passionate about web development, 
-                      troubleshooting, and creating innovative solutions.
+                    <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed mb-6 md:mb-8 min-h-[60px] sm:min-h-[70px]">
+                      {descText}<span className="animate-pulse">{descText.length < fullDesc.length ? '|' : ''}</span>
                     </p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-[10px] sm:text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)] uppercase tracking-[1px] md:tracking-[2px]">
                       <div>
                         <div className="mb-2 text-white">Address</div>
-                        <div>Quezon City, Philippines</div>
+                        <div className="min-h-[20px]">{addressText}<span className="animate-pulse">{addressText.length < fullAddress.length ? '|' : ''}</span></div>
                       </div>
                       <div>
                         <div className="mb-2 text-white">EMAIL</div>
-                        <div className="break-words">melmathewzxc12@gmail.com</div>
+                        <div className="break-words min-h-[20px]">{emailText}<span className="animate-pulse">{emailText.length < fullEmail.length ? '|' : ''}</span></div>
                       </div>
                       <div>
                         <div className="mb-2 text-white">WEBSITE</div>
-                        <div className="break-words">www.melmathew.dev</div>
+                        <div className="break-words min-h-[20px]">{websiteText}<span className="animate-pulse">{websiteText.length < fullWebsite.length ? '|' : ''}</span></div>
                       </div>
                     </div>
                   </div>
@@ -316,13 +360,13 @@ export default function Home() {
           </section>
 
           <section id="about" className="section">
-            <div className="section-title">
+            <div className="section-title animate-on-scroll animate-fade-up">
               <h2>ABOUT ME</h2>
               <p>BACKGROUND & EXPERTISE</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div>
+              <div className="animate-on-scroll animate-fade-left delay-1">
                 <h3 className="text-[24px] font-bold text-white mb-6 tracking-[2px]">MEL MATHEW PEREZ ALBASON</h3>
                 <p className="text-[14px] text-[rgba(255,255,255,0.7)] leading-[1.8] mb-6">
                   I am a BS Information Technology student at Quezon City University. I enjoy troubleshooting computers 
@@ -334,28 +378,28 @@ export default function Home() {
                 </p>
               </div>
 
-              <div>
+              <div className="animate-on-scroll animate-fade-right delay-2">
                 <h4 className="text-[14px] text-white mb-4 tracking-[2px] uppercase">SKILLS</h4>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="pill text-center">PHP</div>
                   <div className="pill text-center">JavaScript</div>
-                  <div className="pill text-center">HTML</div>
-                  <div className="pill text-center">CSS</div>
+                  <div className="pill text-center">MySql</div>
                   <div className="pill text-center">VB.NET</div>
-                  <div className="pill text-center">Node.js</div>
+                  <div className="pill text-center">VB.NET</div>
+                  <div className="pill text-center">Troubleshooting</div>
                 </div>
               </div>
             </div>
           </section>
 
           <section id="journey" className="section">
-            <div className="section-title">
+            <div className="section-title animate-on-scroll animate-fade-up">
               <h2>EDUCATION</h2>
               <p>ACADEMIC BACKGROUND</p>
             </div>
 
             <div className="grid gap-8">
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
+              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-1">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/qcu-logo.png" alt="QCU Logo" width={60} height={60} className="object-contain" />
                   <div>
@@ -366,7 +410,7 @@ export default function Home() {
                 <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Bachelor of Science in Information Technology</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
+              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-2">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/seaitt.png" alt="SEAITT Logo" width={60} height={60} className="object-contain" />
                   <div>
@@ -377,7 +421,7 @@ export default function Home() {
                 <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Humanities and Social Sciences</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
+              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-3">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/b-silangan.png" alt="Bagong Silangan HS Logo" width={60} height={60} className="object-contain" />
                   <div>
@@ -388,7 +432,7 @@ export default function Home() {
                 <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">High School</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all">
+              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-4">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/b-e-silangan.png" alt="Bagong Silangan ES Logo" width={60} height={60} className="object-contain" />
                   <div>
@@ -401,15 +445,18 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-16 border-t border-[rgba(255,255,255,0.1)]">
-              <div className="text-center">
+              <div className="text-center animate-on-scroll animate-scale delay-1">
                 <div className="text-[48px] font-bold text-white mb-2">6</div>
                 <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Total Projects</div>
               </div>
-              <div className="text-center">
-                <div className="text-[48px] font-bold text-white mb-2">4</div>
+              <div 
+                className="text-center animate-on-scroll animate-scale delay-2 cursor-pointer hover:scale-105 transition-transform"
+                onClick={() => setShowCertificates(true)}
+              >
+                <div className="text-[48px] font-bold text-white mb-2">5</div>
                 <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Certificates</div>
               </div>
-              <div className="text-center">
+              <div className="text-center animate-on-scroll animate-scale delay-3">
                 <div className="text-[48px] font-bold text-white mb-2">9</div>
                 <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Tech Stacks</div>
               </div>
@@ -417,7 +464,7 @@ export default function Home() {
           </section>
 
           <section id="portfolio" className="section">
-            <div className="section-title animate-on-scroll">
+            <div className="section-title animate-on-scroll animate-fade-up">
               <h2><b>Work Highlights</b></h2>
               <p><i>Explore key projects and accomplishments that demonstrate my skills, creativity, and technical proficiency.</i></p>
             </div>
@@ -514,13 +561,13 @@ export default function Home() {
  
 
           <section id="contact" className="section">
-            <div className="section-title">
+            <div className="section-title animate-on-scroll animate-fade-up">
               <h2>CONTACT</h2>
               <p>GET IN TOUCH</p>
             </div>
 
             <div className="max-w-2xl mx-auto">
-              <div className="card">
+              <div className="card animate-on-scroll animate-fade-up delay-1">
                 <form onSubmit={handleSubmit} className="mb-12">
                   <input 
                     className="input" 
@@ -576,7 +623,7 @@ export default function Home() {
                     <a href="https://www.facebook.com/mathewww12" target="_blank" rel="noopener noreferrer" className="pill text-center">
                       Facebook
                     </a>
-                    <a href="https://github.com/letsfckntry" target="_blank" rel="noopener noreferrer" className="pill text-center">
+                    <a href="https://github.com/melmathewww" target="_blank" rel="noopener noreferrer" className="pill text-center">
                       GitHub
                     </a>
                     <a href="https://www.tiktok.com/@matchuxszxc_" target="_blank" rel="noopener noreferrer" className="pill text-center">
@@ -591,6 +638,36 @@ export default function Home() {
 
         <footer style={{textAlign:'center',padding:'28px 0',color:'rgba(255,255,255,0.55)'}}>© 2025 Mel Mathew Perez Albason</footer>
       </div>
+
+      {/* Certificate Modal */}
+      {showCertificates && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-[100] flex items-center justify-center p-4"
+          onClick={() => setShowCertificates(false)}
+        >
+          <div className="relative max-w-6xl w-full max-h-[90vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowCertificates(false)}
+              className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-10 bg-black bg-opacity-50 w-12 h-12 rounded-full flex items-center justify-center"
+            >
+              ×
+            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
+              {certificates.map((cert, index) => (
+                <div key={index} className="bg-white p-4 rounded-lg">
+                  <Image
+                    src={cert}
+                    alt={`Certificate ${index + 1}`}
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
     
   );
