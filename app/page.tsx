@@ -287,7 +287,7 @@ export default function Home() {
   return (
     <div className="grid-overlay">
       <ParticlesBackground />
-      <div className="mx-auto max-w-[1200px] relative pointer-events-none" style={{ zIndex: 10 }}>
+      <div className="mx-auto max-w-[1200px] relative" style={{ zIndex: 10, pointerEvents: 'auto' }}>
         <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-5 px-4 md:px-8 lg:px-20 py-4 md:py-6">
           <div className="font-bold text-[16px] md:text-[20px] lg:text-[24px] text-white tracking-[2px] md:tracking-[4px]">MEL MATHEW</div>
           <nav className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-12 items-center text-[10px] sm:text-[12px] md:text-[14px]" aria-label="Main navigation">
@@ -342,9 +342,9 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px]">
+                  <div className="relative w-full max-w-[180px] sm:max-w-[20px] md:max-w-[280px] lg:max-w-[300px] border border-[rgba(255,255,255,0.2)]">
                     <Image
-                      src="/images/dddd.png"
+                      src="/images/ddddd.png"
                       alt="Mel Mathew Perez Albason"
                       width={1080}
                       height={1920}
