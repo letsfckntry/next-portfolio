@@ -3,6 +3,15 @@ import { Resend } from 'resend';
 
 export async function POST(request: Request) {
   try {
+    // Check if API key exists
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not set');
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      );
+    }
+
     // Initialize Resend with API key
     const resend = new Resend(process.env.RESEND_API_KEY);
     
@@ -25,10 +34,12 @@ export async function POST(request: Request) {
       );
     }
 
+    console.log('Attempting to send email to:', process.env.RECIPIENT_EMAIL);
+
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // Resend's test domain
-      to: process.env.RECIPIENT_EMAIL || 'your-email@example.com',
+      from: 'onboarding@resend.dev',
+      to: process.env.RECIPIENT_EMAIL || 'melmathewzxc12@gmail.com',
       replyTo: email,
       subject: `Portfolio Contact from ${name}`,
       html: `
@@ -40,14 +51,22 @@ export async function POST(request: Request) {
       `,
     });
 
+    console.log('Email sent successfully:', data);
+
     return NextResponse.json(
       { message: 'Email sent successfully', data },
       { status: 200 }
     );
-  } catch (error) {
-    console.error('Error sending email:', error);
+  } catch (error: any) {
+    console.error('Detailed error sending email:', error);
+    console.error('Error message:', error?.message);
+    console.error('Error response:', error?.response?.data);
+    
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { 
+        error: 'Failed to send email',
+        details: error?.message || 'Unknown error'
+      },
       { status: 500 }
     );
   }
