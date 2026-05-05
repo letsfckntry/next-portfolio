@@ -395,9 +395,9 @@ export default function Home() {
                   <div className="pill text-center">PHP</div>
                   <div className="pill text-center">JavaScript</div>
                   <div className="pill text-center">MySql</div>
-                  <div className="pill text-center">VB.NET</div>
-                  <div className="pill text-center">VB.NET</div>
-                  <div className="pill text-center">Troubleshooting</div>
+                    <div className="pill text-center">Next.JS</div>
+                  <div className="pill text-center">TypeScript</div>
+                  <div className="pill text-center">React</div>
                 </div>
               </div>
             </div>
