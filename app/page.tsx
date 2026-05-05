@@ -323,6 +323,15 @@ export default function Home() {
                       {descText}<span className="animate-pulse">{descText.length < fullDesc.length ? '|' : ''}</span>
                     </p>
                     
+                    {/* Download Resume Button */}
+                    <a 
+                      href="/resume.pdf" 
+                      download="Mel_Mathew_Albason_Resume.pdf"
+                      className="inline-block mb-6 md:mb-8 px-6 py-3 border border-white text-white text-[12px] tracking-[2px] uppercase hover:bg-white hover:text-black transition-all"
+                    >
+                      Download Resume
+                    </a>
+                    
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-[10px] sm:text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)] uppercase tracking-[1px] md:tracking-[2px]">
                       <div>
                         <div className="mb-2 text-white">Address</div>
@@ -342,17 +351,19 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[180px] sm:max-w-[20px] md:max-w-[280px] lg:max-w-[300px] border border-[rgba(255,255,255,0.2)]">
-                    <Image
-                      src="/images/ddddd.png"
-                      alt="Mel Mathew Perez Albason"
-                      width={1080}
-                      height={1920}
-                      className="w-full h-auto object-cover scale-x-[-1]"
-                      priority
-                      quality={100}
-                      unoptimized
-                    />
+                  <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px]">
+                    <div className="relative rounded-3xl overflow-hidden">
+                      <Image
+                        src="/images/dddd.png"
+                        alt="Mel Mathew Perez Albason"
+                        width={1080}
+                        height={1920}
+                        className="w-full h-auto object-cover scale-x-[-1]"
+                        priority
+                        quality={100}
+                        unoptimized
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
