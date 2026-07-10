@@ -30,7 +30,7 @@ export default function Home() {
   const fullName = "MEL MATHEW ALBASON";
   const fullDesc = "BS Information Technology student at Quezon City University. Passionate about web development, troubleshooting, and creating innovative solutions.";
   const fullAddress = "Quezon City, Philippines";
-  const fullEmail = "melmathewzxc12@gmail.com";
+  const fullEmail = "albason.melmathew.perez@gmail.com";
   const fullWebsite = "www.melmathew.dev";
 
   // Certificate images - add your certificate image paths here
@@ -39,10 +39,9 @@ export default function Home() {
     "/images/ethical.png",
     "/images/ignite.png",
     "/images/maralabs.png",
-    "/images/tech.png"
-  
+    "/images/tech.png",
+    "/images/hardware.png"
   ];
-  
   const projects = [
     {
       title: "QCU AMS",
@@ -288,12 +287,11 @@ export default function Home() {
     <div className="grid-overlay">
       <ParticlesBackground />
       <div className="mx-auto max-w-[1200px] relative" style={{ zIndex: 10, pointerEvents: 'auto' }}>
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-5 px-4 md:px-8 lg:px-20 py-4 md:py-6">
-          <div className="font-bold text-[16px] md:text-[20px] lg:text-[24px] text-white tracking-[2px] md:tracking-[4px]">MEL MATHEW</div>
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[rgba(0,0,0,0.1)] flex items-center justify-between gap-5 px-4 md:px-8 lg:px-20 py-4 md:py-6">
+          <div className="font-bold text-[16px] md:text-[20px] lg:text-[24px] text-black tracking-[2px] md:tracking-[4px]">MEL MATHEW</div>
           <nav className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-12 items-center text-[10px] sm:text-[12px] md:text-[14px]" aria-label="Main navigation">
             <a className="vector-nav-link nav-hover" href="#home">HOME</a>
             <a className="vector-nav-link nav-hover" href="#about">ABOUT</a>
-            <a className="vector-nav-link nav-hover" href="#portfolio">PORTFOLIO</a>
             <a className="vector-nav-link nav-hover" href="#contact">CONTACT</a>
           </nav>
         </header>
@@ -305,21 +303,21 @@ export default function Home() {
                 {/* Left side - Content */}
                 <div className="order-2 md:order-1">
                   {/* Top line */}
-                  <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-12"></div>
+                  <div className="w-full h-[1px] bg-[rgba(0,0,0,0.2)] mb-12"></div>
                   
-                  <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold text-white leading-none tracking-[2px] md:tracking-[4px] mb-4 md:mb-6 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
+                  <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold text-black leading-none tracking-[2px] md:tracking-[4px] mb-4 md:mb-6 min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
                     {nameText}<span className="animate-pulse">|</span>
                   </h1>
                   
-                  <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] text-[rgba(255,255,255,0.5)] tracking-[2px] md:tracking-[3px] uppercase mb-8 md:mb-12">
+                  <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[14px] text-[rgba(0,0,0,0.6)] tracking-[2px] md:tracking-[3px] uppercase mb-8 md:mb-12">
                     DEVELOPER & DESIGNER
                   </p>
                   
                   {/* Bottom line */}
-                  <div className="w-full h-[1px] bg-[rgba(255,255,255,0.2)] mb-8 md:mb-12"></div>
+                  <div className="w-full h-[1px] bg-[rgba(0,0,0,0.2)] mb-8 md:mb-12"></div>
                   
                   <div className="text-left">
-                    <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[rgba(255,255,255,0.5)] leading-relaxed mb-6 md:mb-8 min-h-[60px] sm:min-h-[70px]">
+                    <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[rgba(0,0,0,0.7)] leading-relaxed mb-6 md:mb-8 min-h-[60px] sm:min-h-[70px]">
                       {descText}<span className="animate-pulse">{descText.length < fullDesc.length ? '|' : ''}</span>
                     </p>
                     
@@ -327,22 +325,22 @@ export default function Home() {
                     <a 
                       href="/resume.pdf" 
                       download="Mel_Mathew_Albason_Resume.pdf"
-                      className="inline-block mb-6 md:mb-8 px-6 py-3 border border-white text-white text-[12px] tracking-[2px] uppercase hover:bg-white hover:text-black transition-all"
+                      className="inline-block mb-6 md:mb-8 px-6 py-3 border border-black text-black text-[12px] tracking-[2px] uppercase hover:bg-black hover:text-white transition-all"
                     >
                       Download Resume
                     </a>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-[10px] sm:text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)] uppercase tracking-[1px] md:tracking-[2px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-[10px] sm:text-[11px] md:text-[12px] text-[rgba(0,0,0,0.6)] uppercase tracking-[1px] md:tracking-[2px]">
                       <div>
-                        <div className="mb-2 text-white">Address</div>
+                        <div className="mb-2 text-black">Address</div>
                         <div className="min-h-[20px]">{addressText}<span className="animate-pulse">{addressText.length < fullAddress.length ? '|' : ''}</span></div>
                       </div>
                       <div>
-                        <div className="mb-2 text-white">EMAIL</div>
+                        <div className="mb-2 text-black">EMAIL</div>
                         <div className="break-words min-h-[20px]">{emailText}<span className="animate-pulse">{emailText.length < fullEmail.length ? '|' : ''}</span></div>
                       </div>
                       <div>
-                        <div className="mb-2 text-white">WEBSITE</div>
+                        <div className="mb-2 text-black">WEBSITE</div>
                         <div className="break-words min-h-[20px]">{websiteText}<span className="animate-pulse">{websiteText.length < fullWebsite.length ? '|' : ''}</span></div>
                       </div>
                     </div>
@@ -351,14 +349,14 @@ export default function Home() {
 
                 {/* Right side - Image */}
                 <div className="order-1 md:order-2 flex justify-center md:justify-end">
-                  <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px]">
+                  <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px] profile-image-fade">
                     <div className="relative rounded-3xl overflow-hidden">
                       <Image
-                        src="/images/dddd.png"
+                        src="/images/mathew.png"
                         alt="Mel Mathew Perez Albason"
                         width={1080}
                         height={1920}
-                        className="w-full h-auto object-cover scale-x-[-1]"
+                        className="w-full h-auto object-cover scale-x"
                         priority
                         quality={100}
                         unoptimized
@@ -378,19 +376,19 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="animate-on-scroll animate-fade-left delay-1">
-                <h3 className="text-[24px] font-bold text-white mb-6 tracking-[2px]">MEL MATHEW PEREZ ALBASON</h3>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] leading-[1.8] mb-6">
+                <h3 className="text-[24px] font-bold text-black mb-6 tracking-[2px]">MEL MATHEW PEREZ ALBASON</h3>
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] leading-[1.8] mb-6">
                   I am a BS Information Technology student at Quezon City University. I enjoy troubleshooting computers 
                   and typing or holding a keyboard and also fiddling with the parts of the computer.
                 </p>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] leading-[1.8]">
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] leading-[1.8]">
                   I'm here to pursue a challenging and creative career where I acquire new skills, and contribute 
                   effectively to the organization.
                 </p>
               </div>
 
               <div className="animate-on-scroll animate-fade-right delay-2">
-                <h4 className="text-[14px] text-white mb-4 tracking-[2px] uppercase">SKILLS</h4>
+                <h4 className="text-[14px] text-black mb-4 tracking-[2px] uppercase">SKILLS</h4>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="pill text-center">PHP</div>
                   <div className="pill text-center">JavaScript</div>
@@ -410,66 +408,66 @@ export default function Home() {
             </div>
 
             <div className="grid gap-8">
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-1">
+              <div className="border-l-2 border-[rgba(0,0,0,0.2)] pl-8 hover:border-black transition-all animate-on-scroll animate-fade-left delay-1">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/qcu-logo.png" alt="QCU Logo" width={60} height={60} className="object-contain" />
                   <div>
-                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2022 - PRESENT</div>
-                    <h3 className="text-[18px] font-bold text-white">Quezon City University</h3>
+                    <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase mb-2">2022 - PRESENT</div>
+                    <h3 className="text-[18px] font-bold text-black">Quezon City University</h3>
                   </div>
                 </div>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Bachelor of Science in Information Technology</p>
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] ml-[76px]">Bachelor of Science in Information Technology</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-2">
+              <div className="border-l-2 border-[rgba(0,0,0,0.2)] pl-8 hover:border-black transition-all animate-on-scroll animate-fade-left delay-2">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/seaitt.png" alt="SEAITT Logo" width={60} height={60} className="object-contain" />
                   <div>
-                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2019 - 2021</div>
-                    <h3 className="text-[18px] font-bold text-white">South East Asia Institute of Trade And Technology</h3>
+                    <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase mb-2">2019 - 2021</div>
+                    <h3 className="text-[18px] font-bold text-black">South East Asia Institute of Trade And Technology</h3>
                   </div>
                 </div>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Humanities and Social Sciences</p>
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] ml-[76px]">Humanities and Social Sciences</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-3">
+              <div className="border-l-2 border-[rgba(0,0,0,0.2)] pl-8 hover:border-black transition-all animate-on-scroll animate-fade-left delay-3">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/b-silangan.png" alt="Bagong Silangan HS Logo" width={60} height={60} className="object-contain" />
                   <div>
-                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2014 - 2018</div>
-                    <h3 className="text-[18px] font-bold text-white">Bagong Silangan High School</h3>
+                    <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase mb-2">2014 - 2018</div>
+                    <h3 className="text-[18px] font-bold text-black">Bagong Silangan High School</h3>
                   </div>
                 </div>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">High School</p>
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] ml-[76px]">High School</p>
               </div>
 
-              <div className="border-l-2 border-[rgba(255,255,255,0.2)] pl-8 hover:border-white transition-all animate-on-scroll animate-fade-left delay-4">
+              <div className="border-l-2 border-[rgba(0,0,0,0.2)] pl-8 hover:border-black transition-all animate-on-scroll animate-fade-left delay-4">
                 <div className="flex items-center gap-4 mb-2">
                   <Image src="/images/b-e-silangan.png" alt="Bagong Silangan ES Logo" width={60} height={60} className="object-contain" />
                   <div>
-                    <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase mb-2">2007 - 2013</div>
-                    <h3 className="text-[18px] font-bold text-white">Bagong Silangan Elementary School</h3>
+                    <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase mb-2">2007 - 2013</div>
+                    <h3 className="text-[18px] font-bold text-black">Bagong Silangan Elementary School</h3>
                   </div>
                 </div>
-                <p className="text-[14px] text-[rgba(255,255,255,0.7)] ml-[76px]">Elementary School</p>
+                <p className="text-[14px] text-[rgba(0,0,0,0.7)] ml-[76px]">Elementary School</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-16 border-t border-[rgba(255,255,255,0.1)]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-16 border-t border-[rgba(0,0,0,0.1)]">
               <div className="text-center animate-on-scroll animate-scale delay-1">
-                <div className="text-[48px] font-bold text-white mb-2">6</div>
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Total Projects</div>
+                <div className="text-[48px] font-bold text-black mb-2">6</div>
+                <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase">Total Projects</div>
               </div>
               <div 
                 className="text-center animate-on-scroll animate-scale delay-2 cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => setShowCertificates(true)}
               >
-                <div className="text-[48px] font-bold text-white mb-2">5</div>
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Certificates</div>
+                <div className="text-[48px] font-bold text-black mb-2">6</div>
+                <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase">Certificates</div>
               </div>
               <div className="text-center animate-on-scroll animate-scale delay-3">
-                <div className="text-[48px] font-bold text-white mb-2">9</div>
-                <div className="text-[12px] text-[rgba(255,255,255,0.5)] tracking-[2px] uppercase">Tech Stacks</div>
+                <div className="text-[48px] font-bold text-black mb-2">9</div>
+                <div className="text-[12px] text-[rgba(0,0,0,0.6)] tracking-[2px] uppercase">Tech Stacks</div>
               </div>
             </div>
           </section>
@@ -517,12 +515,12 @@ export default function Home() {
                         </div>
                         <div className="project-content">
                           <h4 className="mt-2 sm:mt-3 text-base sm:text-lg md:text-xl font-bold flex items-center gap-2">
-                            <svg className="w-5 h-5 text-[white]" viewBox="0 0 24 24" fill="currentColor">
+                            <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="currentColor">
                               <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
                             </svg>
                             {project.title}
                           </h4>
-                          <p className="text-white/80 mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed">{project.description}</p>
+                          <p className="text-black/80 mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed">{project.description}</p>
                         </div>
                       </div>
                     </div>
@@ -533,7 +531,7 @@ export default function Home() {
               {/* Navigation Buttons */}
               <button
                 onClick={() => setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1))}
-                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 md:-translate-x-4 bg-gradient-to-r from-[white] to-[white] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-white/50 transition-all z-10 touch-manipulation"
+                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-1 sm:-translate-x-2 md:-translate-x-4 bg-gradient-to-r from-[#1a1a1a] to-[#1a1a1a] text-white p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-black/50 transition-all z-10 touch-manipulation"
                 aria-label="Previous project"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
@@ -543,7 +541,7 @@ export default function Home() {
 
               <button
                 onClick={() => setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1))}
-                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 md:translate-x-4 bg-gradient-to-r from-[white] to-[white] text-[#1a1d29] p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-white/50 transition-all z-10 touch-manipulation"
+                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-1 sm:translate-x-2 md:translate-x-4 bg-gradient-to-r from-[#1a1a1a] to-[#1a1a1a] text-white p-2 sm:p-2.5 md:p-3 rounded-full hover:shadow-lg hover:shadow-black/50 transition-all z-10 touch-manipulation"
                 aria-label="Next project"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6">
@@ -559,8 +557,8 @@ export default function Home() {
                     onClick={() => setCurrentSlide(index)}
                     className={`h-1.5 sm:h-2 rounded-full transition-all touch-manipulation ${
                       currentSlide === index 
-                        ? 'bg-gradient-to-r from-[white] to-[white] w-6 sm:w-8' 
-                        : 'bg-white/30 hover:bg-white/50 w-1.5 sm:w-2'
+                        ? 'bg-gradient-to-r from-[#1a1a1a] to-[#1a1a1a] w-6 sm:w-8' 
+                        : 'bg-black/30 hover:bg-black/50 w-1.5 sm:w-2'
                     }`}
                     aria-label={`Go to project ${index + 1}`}
                   />
@@ -617,16 +615,16 @@ export default function Home() {
                   {formMessage && (
                     <div className={`mt-4 p-3 text-sm ${
                       formStatus === "success" 
-                        ? "text-white border border-white" 
-                        : "text-red-300 border border-red-500"
+                        ? "text-green-700 border border-green-700 bg-green-50" 
+                        : "text-red-700 border border-red-500 bg-red-50"
                     }`}>
                       {formMessage}
                     </div>
                   )}
                 </form>
                 
-                <div className="pt-8 border-t border-[rgba(255,255,255,0.1)]">
-                  <h3 className="text-[14px] text-white mb-6 tracking-[2px] uppercase">Connect With Me</h3>
+                <div className="pt-8 border-t border-[rgba(0,0,0,0.1)]">
+                  <h3 className="text-[14px] text-black mb-6 tracking-[2px] uppercase">Connect With Me</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <a href="https://www.instagram.com/matiyeosczxc_/" target="_blank" rel="noopener noreferrer" className="pill text-center">
                       Instagram
@@ -647,7 +645,7 @@ export default function Home() {
           </section>
         </main>
 
-        <footer style={{textAlign:'center',padding:'28px 0',color:'rgba(255,255,255,0.55)'}}>© 2025 Mel Mathew Perez Albason</footer>
+        <footer style={{textAlign:'center',padding:'28px 0',color:'rgba(0,0,0,0.6)'}}>© 2025 Mel Mathew Perez Albason</footer>
       </div>
 
       {/* Certificate Modal */}
